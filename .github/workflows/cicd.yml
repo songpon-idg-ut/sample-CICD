@@ -28,7 +28,7 @@ jobs:
           cache-dependency-path: frontend/package.json
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Run Unit Tests
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
@@ -71,7 +71,7 @@ jobs:
 
       - name: Install Frontend Dependencies
         working-directory: ./frontend
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Serve Application
         working-directory: ./frontend
