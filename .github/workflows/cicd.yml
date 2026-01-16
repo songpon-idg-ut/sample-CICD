@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-analyze:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -30,27 +30,21 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Run Unit Tests
+        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
+        
       - name: Build Angular App
         run: npm run build -- --configuration production
-
-  scan:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-and-analyze
     defaults:
       run:
         working-directory: ./
