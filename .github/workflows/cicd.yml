@@ -38,6 +38,7 @@ jobs:
         run: |
           cp server.js dist/frontend/browser/
           cp package.json dist/frontend/browser/
+          cd dist/frontend/browser/ && npm install --omit=dev
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
