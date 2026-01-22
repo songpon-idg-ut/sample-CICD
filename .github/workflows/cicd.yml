@@ -182,7 +182,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'sample-cicd-c4dedmctfmgagrgp'
-          slot-name: 'production'
+          app-name: 'sample-cicd' 
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./frontend/dist/frontend/browser
