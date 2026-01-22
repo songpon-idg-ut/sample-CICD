@@ -4,7 +4,7 @@ Suite Setup       Open Browser To Application
 Suite Teardown    Close Browser
 
 *** Variables ***
-${SERVER}         https://sample-cicd-c4dedmctfmgagrgp.southeastasia-01.azurewebsites.net
+${SERVER}         http://localhost:4200
 ${BROWSER}        Chrome
 ${DELAY}          0
 ${HOME URL}       ${SERVER}/
