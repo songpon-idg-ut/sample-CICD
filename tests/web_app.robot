@@ -4,7 +4,7 @@ Suite Setup       Open Browser To Application
 Suite Teardown    Close Browser
 
 *** Variables ***
-${SERVER}         http://localhost:4200
+${SERVER}         https://sample-cicd-c4dedmctfmgagrgp.southeastasia-01.azurewebsites.net
 ${BROWSER}        Chrome
 ${DELAY}          0
 ${HOME URL}       ${SERVER}/
@@ -12,7 +12,7 @@ ${HOME URL}       ${SERVER}/
 *** Test Cases ***
 Verify Page Title
     [Documentation]    Check if the page title is correct
-    Title Should Be    Sample CICD App
+    Title Should Be    Frontend
 
 Verify Login Form Present
     [Documentation]    Check if the login form is visible
@@ -32,7 +32,7 @@ Verify Submit Button
 
 Verify Welcome Message
     [Documentation]    Check for a welcome message on the landing page
-    Page Should Contain    Welcome to Sample CICD App
+    Page Should Contain    Welcome Back
 
 Verify Navigation Menu
     [Documentation]    Check if the navigation menu exists
