@@ -34,6 +34,11 @@ jobs:
       - name: Build Angular App
         run: npm run build -- --configuration production
 
+      - name: Copy Server Files
+        run: |
+          cp frontend/server.js frontend/dist/frontend/browser/
+          cp frontend/package.json frontend/dist/frontend/browser/
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -140,7 +145,7 @@ jobs:
       - name: Serve Application
         working-directory: ./frontend
         run: |
-          npm run start -- --port 4200 &
+          npm run dev -- --port 4200 &
           npx -y wait-on http://localhost:4200
 
       - name: Run Robot Framework Tests
