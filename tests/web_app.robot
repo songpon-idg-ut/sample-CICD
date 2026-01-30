@@ -12,7 +12,7 @@ ${HOME URL}       ${SERVER}/
 *** Test Cases ***
 Verify Page Title
     [Documentation]    Check if the page title is correct
-    Title Should Be    Frontend
+    Title Should Be    Frontend123
 
 Verify Login Form Present
     [Documentation]    Check if the login form is visible
